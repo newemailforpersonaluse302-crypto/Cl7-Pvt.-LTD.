@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CALI International</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(180deg,#050d1f,#2a0f3f);
+    color:white;
+}
+
+/* Top Bar */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 20px;
+    background:#050d1f;
+    box-shadow:0 0 25px #00eaff55;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+    color:#00eaff;
+    text-shadow:0 0 15px #00eaff;
+}
+
+.menu{
+    font-size:28px;
+}
+
+/* Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:15px;
+    padding:20px;
+}
+
+.box{
+    background:#111c33;
+    padding:20px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 0 15px #ff4fd855;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.box.active{
+    transform:scale(1.15);
+    background:#1f3b70;
+}
+
+.message{
+    text-align:center;
+    color:#ff4fd8;
+    margin-top:10px;
+}
+
+/* Buttons */
+.center{
+    text-align:center;
+    margin-top:40px;
+}
+
+button{
+    padding:15px 40px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ff4fd8;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 25px #ff4fd8;
+    margin:10px;
+}
+
+button:hover{
+    background:#00eaff;
+}
+
+/* Global Section */
+.global{
+    margin-top:60px;
+    padding:40px;
+    background:#0c162b;
+    text-align:center;
+}
+
+.global h2{
+    color:#ffb703;
+}
+
+.countries{
+    margin-top:20px;
+    line-height:1.8;
+    color:#35d0ff;
+}
+
+/* Owners */
+.owners{
+    margin-top:30px;
+    color:#ff4fd8;
+}
+
+/* Loading */
+#loading,#fail{
+    display:none;
+    margin-top:20px;
+}
+
+#fail{
+    color:red;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="logo">CL7(Pvt.)Ltd.pakistan. INTERNATIONAL</div>
+    <div class="menu">⋮</div>
+</div>
+
+<div class="grid">
+    <div class="box" onclick="showMsg(this)">Global Trade</div>
+    <div class="box" onclick="showMsg(this)">Cloud AI</div>
+    <div class="box" onclick="showMsg(this)">Security</div>
+    <div class="box" onclick="showMsg(this)">Digital Banking</div>
+    <div class="box" onclick="showMsg(this)">Crypto Hub</div>
+    <div class="box" onclick="showMsg(this)">Premium Sales</div>
+    <div class="box" onclick="showMsg(this)">Automation</div>
+    <div class="box" onclick="showMsg(this)">Manufacturing</div>
+    <div class="box" onclick="showMsg(this)">Analytics</div>
+    <div class="box" onclick="showMsg(this)">Data Mining</div>
+    <div class="box" onclick="showMsg(this)">Meta Lab</div>
+    <div class="box" onclick="showMsg(this)">Innovation</div>
+    <div class="box" onclick="showMsg(this)">Global Network</div>
+    <div class="box" onclick="showMsg(this)">Smart Factory</div>
+    <div class="box" onclick="showMsg(this)">Storage Hub</div>
+    <div class="box" onclick="showMsg(this)">VIP Access</div>
+    <div class="box" onclick="showMsg(this)">Gallery</div>
+    <div class="box" onclick="showMsg(this)">Google Services</div>
+    <div class="box" onclick="showMsg(this)">Enterprise Tools</div>
+    <div class="box" onclick="showMsg(this)">Future Vision</div>
+</div>
+
+<div class="message" id="msg"></div>
+
+<div class="center">
+    <button onclick="startProcess()">Sign In</button>
+    <button>Join Us</button>
+
+    <div id="loading">
+        ⏳ Please Wait... International Server Sync (Encrypted Data 12TB+)...
+        Is web per kam karne k liye 2gb per sec data hona chaye
+    </div>
+
+    <div id="fail">
+        ❌ Internet Failed - Global Server Timeout  
+        <br><br>
+        <button onclick="location.reload()">Reload</button>
+    </div>
+</div>
+
+<div class="global">
+    <h2>🌍 INTERNATIONAL OPERATIONS 🌍</h2>
+
+    <div class="countries">
+        🇵🇰 Pakistan – PKR Transactions <br>
+        🇺🇸 United States – USD Operations <br>
+        🇬🇧 United Kingdom – GBP Services <br>
+        🇪🇺 Germany/France – EUR Network <br>
+        🇦🇪 UAE – AED Market <br>
+        🇨🇦 Canada – CAD System <br>
+        🇦🇺 Australia – AUD Region <br>
+        🇸🇦 Saudi Arabia – SAR Platform <br><br>
+
+        Millions of global users connected daily. <br>
+        Enterprise systems operating 24/7 worldwide. <br>
+        Continuous digital infrastructure across multiple regions.
+    </div>
+
+    <div class="owners">
+        Founder & Owner 1: Big Onwer Ali Raza<br>
+        Founder & Owner 2: sufyan second owner<br>
+        Founder & Owner 3: on leave
+    </div>
+</div>
+
+<script>
+function showMsg(element){
+    let boxes=document.querySelectorAll('.box');
+    boxes.forEach(box=>box.classList.remove('active'));
+    element.classList.add('active');
+    document.getElementById("msg").innerText="⚠ Please Sign In First to Activate This Feature";
+}
+
+function startProcess(){
+    document.querySelector(".center button").style.display="none";
+    document.getElementById("loading").style.display="block";
+
+    setTimeout(function(){
+        document.getElementById("loading").style.display="none";
+        document.getElementById("fail").style.display="block";
+    },300000);
+}
+</script>
+
+</body>
+</html>
